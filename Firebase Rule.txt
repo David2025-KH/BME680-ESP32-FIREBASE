@@ -1,0 +1,25 @@
+{
+  "rules": {
+    // -------------------------------
+    // Root-level rules
+    // -------------------------------
+    ".read": "auth != null",   // ✅ Only authenticated users (signed-in) can read data anywhere in the database
+    ".write": "auth != null",  // ✅ Only authenticated users (signed-in) can write data anywhere in the database
+
+    // -------------------------------
+    // Realtime Data node
+    // -------------------------------
+    "1_Real-Time_Data": { 
+      ".read": "auth != null",   // ✅ Only signed-in users can read Realtime Data
+      ".write": "auth != null"   // ✅ Only signed-in users can write Realtime Data
+    },
+
+    // -------------------------------
+    // Historical Data node
+    // -------------------------------
+    "2_Historical_Data": { 
+      ".read": "auth != null",   // ✅ Only signed-in users can read Historical Data
+      ".write": "auth != null"   // ✅ Only signed-in users can write Historical Data
+    }
+  }
+}
